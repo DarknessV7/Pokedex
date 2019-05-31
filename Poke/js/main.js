@@ -1,13 +1,17 @@
-var poke = angular.module("pokemon",[])
-poke.controller("pokedex", function($scope,$rootScope,$http){
+var pokemon = angular.module("pokemon",[])
+pokemon.controller("Pokedex", function($scope,$rootScope,$http){
+	$scope.PokedexB = [];
+
+	for (var i = 1; i < 100; i++) {
 	$http({
 		method: "GET",
-		url: "https://pokeapi.co/api/v2/pokemon/35"
-	}).then(function callback(y){
-		console.log(y);
+		url: "https://pokeapi.co/api/v2/pokemon/35"+i
+	}).then(function CallbackSucces(y){
+		$scope.PokedexB.push(y);	
+
 	})
 
-
+}
 })
 
 
